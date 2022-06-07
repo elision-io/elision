@@ -4,10 +4,12 @@ import { StdFee } from "@cosmjs/launchpad";
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
+import { MsgSendSellOrder } from "./types/dex/tx";
 import { MsgSendCreatePair } from "./types/dex/tx";
 
 
 const types = [
+  ["/elisionio.elision.dex.MsgSendSellOrder", MsgSendSellOrder],
   ["/elisionio.elision.dex.MsgSendCreatePair", MsgSendCreatePair],
   
 ];
@@ -41,6 +43,7 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
 
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
+    msgSendSellOrder: (data: MsgSendSellOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgSendSellOrder", value: MsgSendSellOrder.fromPartial( data ) }),
     msgSendCreatePair: (data: MsgSendCreatePair): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgSendCreatePair", value: MsgSendCreatePair.fromPartial( data ) }),
     
   };
