@@ -106,7 +106,7 @@ import (
 )
 
 const (
-	AccountAddressPrefix = "cosmos"
+	AccountAddressPrefix = "elsn"
 	Name                 = "elision"
 )
 
