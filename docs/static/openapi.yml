@@ -46747,6 +46747,8 @@ definitions:
         type: string
       priceDenom:
         type: string
+  elisionio.elision.dex.MsgCancelSellOrderResponse:
+    type: object
   elisionio.elision.dex.MsgSendBuyOrderResponse:
     type: object
   elisionio.elision.dex.MsgSendCreatePairResponse:
