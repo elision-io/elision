@@ -5,17 +5,17 @@ import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry, OfflineSigner, EncodeObject, DirectSecp256k1HdWallet } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
 import { MsgSendCreatePair } from "./types/dex/tx";
-import { MsgCancelBuyOrder } from "./types/dex/tx";
-import { MsgSendBuyOrder } from "./types/dex/tx";
 import { MsgSendSellOrder } from "./types/dex/tx";
+import { MsgSendBuyOrder } from "./types/dex/tx";
+import { MsgCancelBuyOrder } from "./types/dex/tx";
 import { MsgCancelSellOrder } from "./types/dex/tx";
 
 
 const types = [
   ["/elisionio.elision.dex.MsgSendCreatePair", MsgSendCreatePair],
-  ["/elisionio.elision.dex.MsgCancelBuyOrder", MsgCancelBuyOrder],
-  ["/elisionio.elision.dex.MsgSendBuyOrder", MsgSendBuyOrder],
   ["/elisionio.elision.dex.MsgSendSellOrder", MsgSendSellOrder],
+  ["/elisionio.elision.dex.MsgSendBuyOrder", MsgSendBuyOrder],
+  ["/elisionio.elision.dex.MsgCancelBuyOrder", MsgCancelBuyOrder],
   ["/elisionio.elision.dex.MsgCancelSellOrder", MsgCancelSellOrder],
   
 ];
@@ -50,9 +50,9 @@ const txClient = async (wallet: OfflineSigner, { addr: addr }: TxClientOptions =
   return {
     signAndBroadcast: (msgs: EncodeObject[], { fee, memo }: SignAndBroadcastOptions = {fee: defaultFee, memo: ""}) => client.signAndBroadcast(address, msgs, fee,memo),
     msgSendCreatePair: (data: MsgSendCreatePair): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgSendCreatePair", value: MsgSendCreatePair.fromPartial( data ) }),
-    msgCancelBuyOrder: (data: MsgCancelBuyOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgCancelBuyOrder", value: MsgCancelBuyOrder.fromPartial( data ) }),
-    msgSendBuyOrder: (data: MsgSendBuyOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgSendBuyOrder", value: MsgSendBuyOrder.fromPartial( data ) }),
     msgSendSellOrder: (data: MsgSendSellOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgSendSellOrder", value: MsgSendSellOrder.fromPartial( data ) }),
+    msgSendBuyOrder: (data: MsgSendBuyOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgSendBuyOrder", value: MsgSendBuyOrder.fromPartial( data ) }),
+    msgCancelBuyOrder: (data: MsgCancelBuyOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgCancelBuyOrder", value: MsgCancelBuyOrder.fromPartial( data ) }),
     msgCancelSellOrder: (data: MsgCancelSellOrder): EncodeObject => ({ typeUrl: "/elisionio.elision.dex.MsgCancelSellOrder", value: MsgCancelSellOrder.fromPartial( data ) }),
     
   };
