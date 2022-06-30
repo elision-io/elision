@@ -1,11 +1,10 @@
 package main
 
 import (
-	"os"
-
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 	"github.com/elision-io/elision/app"
 	"github.com/ignite-hq/cli/ignite/pkg/cosmoscmd"
+	"os"
 )
 
 func main() {

@@ -1,9 +1,9 @@
 # yang.yml
 accounts:
   - name: alice
-    coins: ["1000token", "1000000000stake", "1000venuscoin"]
+    coins: ["1000token", "1000000000stake", "1000yangcoin"]
   - name: bob
-    coins: ["500token", "1000venuscoin", "100000000stake"]
+    coins: ["500token", "1000yangcoin", "100000000stake"]
 validator:
   name: alice
   staked: "100000000stake"

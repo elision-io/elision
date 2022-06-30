@@ -1,9 +1,9 @@
 # yin.yml
 accounts:
   - name: alice
-    coins: ["1000token", "100000000stake", "1000marscoin"]
+    coins: ["1000token", "100000000stake", "1000yincoin"]
   - name: bob
-    coins: ["500token", "1000marscoin", "100000000stake"]
+    coins: ["500token", "1000yincoin", "100000000stake"]
 validator:
   name: alice
   staked: "100000000stake"
